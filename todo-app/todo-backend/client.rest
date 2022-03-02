@@ -1,0 +1,11 @@
+GET http://localhost:3000/todos
+###
+POST http://localhost:3000/todos
+Content-Type: application/json
+
+{
+    "text": "just some text to do",
+    "done": false
+}
+###
+DELETE http://localhost:3000/todos/621eb9c4f1c23146c5f8daf5

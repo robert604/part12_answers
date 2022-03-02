@@ -4,6 +4,7 @@ const router = express.Router();
 
 /* GET todos listing. */
 router.get('/', async (_, res) => {
+  console.log('in get todos')
   const todos = await Todo.find({})
   res.send(todos);
 });
