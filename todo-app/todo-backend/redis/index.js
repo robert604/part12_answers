@@ -21,7 +21,21 @@ if (!REDIS_URL) {
   setAsync = promisify(client.set).bind(client)    
 }
 
+const counterKeyName = 'addCounter';
+
+const getCounter = async () => {
+  const fromCache = Number(await getAsync(counterKeyName));
+  const count = isNaN(fromCache) ? 0 : fromCache;
+  return count;
+};
+
+const setCounter = async (value) => {
+  await setAsync(counterKeyName,value);
+};
+
 module.exports = {
   getAsync,
-  setAsync
+  setAsync,
+  getCounter,
+  setCounter
 }
